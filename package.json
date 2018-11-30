@@ -19,6 +19,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "acorn": "^6.0.4",
+    "acorn-jsx": "^5.0.1",
     "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
@@ -31,6 +33,7 @@
     "css-loader": "^1.0.1",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-html": "^5.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -48,6 +51,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.1.2",
+    "vue-eslint-parser": "^3.3.0",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",

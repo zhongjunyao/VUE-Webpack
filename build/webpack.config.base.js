@@ -25,9 +25,13 @@ const config = {
       {
         test: /\.(vue|js|jsx)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/,
-        enforce: 'pre'
+        enforce: 'pre',
+        //eslint检查报告的格式规范
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
       },
+
       {
         test: /\.vue$/,
         loader: 'vue-loader',
