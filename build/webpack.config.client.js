@@ -54,7 +54,7 @@ if (isDev) {
   config = merge(baseConfig, defaultConfig, {
     // 4.声明当前的模式 '开发' 或者 '生产'
     mode: "development",//'development' or 'production'
-    devtool: '#cheap-module-eval-source-map',
+    // devtool: '#cheap-module-eval-source-map',
     devServer,
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
