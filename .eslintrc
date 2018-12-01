@@ -16,5 +16,8 @@
       "impliedStrict": false,
       "jsx": false
     }
+  },
+  "rules": {
+    "no-console": "off"
   }
 }
