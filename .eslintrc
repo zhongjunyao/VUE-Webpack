@@ -4,7 +4,8 @@
     "html"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "commonjs": true
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {
