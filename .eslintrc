@@ -5,7 +5,12 @@
   ],
   "env": {
     "browser": true,
-    "commonjs": true
+    "commonjs": true,
+    "es6": true
+  },
+  "globals": {
+    "vue": true,
+    "wx": true
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {
@@ -19,6 +24,7 @@
     }
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "no-path-concat": "off"
   }
 }

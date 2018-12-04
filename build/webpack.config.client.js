@@ -20,6 +20,9 @@ const devServer = {
   overlay: {
     errors: true,//编译过程有任何的错误都显示在网页上
   },
+  historyApiFallback: {
+    index: '/public/index.html'
+  },
   // open:true, // 执行dev命令自动打开页面
   hot: true,
 }

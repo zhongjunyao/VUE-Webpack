@@ -1,5 +1,6 @@
 <template>
-  <form class="login-form" @submit="doSubmit">
+  <form class="login-form">
+    <H1>我是登陆页面</H1>
     <!-- <h1>
       <span>Login</span>
       <span class="error-msg" v-show="errorMsg">{{errorMsg}}</span>
@@ -24,6 +25,9 @@
 <script>
 // import { mapActions } from "vuex";
 export default {
+  mounted() {
+    console.log("login:", this.$route);
+  }
   // metaInfo: {
   //   title: "Login Page"
   // },

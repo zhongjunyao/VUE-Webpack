@@ -15,7 +15,8 @@ const config = {
   // 2.声明出口路径 使用绝对路径
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/public/'
   },
   // 4.声明当前的模式 '开发' 或者 '生产'
   mode: "development",//'development' or 'production'
