@@ -26,7 +26,7 @@
 // import { mapActions } from "vuex";
 export default {
   mounted() {
-    console.log("login:", this.$route);
+    // console.log("login:", this.$route);
   }
   // metaInfo: {
   //   title: "Login Page"

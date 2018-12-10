@@ -1,22 +1,28 @@
 <template>
   <div id="app">
     <div id="cover"></div>
-    <Header></Header>
-    <router-link to="/app/zjy">app</router-link>
+    <Header>
+      <!-- <span slot="count">{{count}}</span> -->
+      <span slot="count">{{counter}}</span>
+    </Header>
+    <router-link to="/app">app</router-link>
+    <!-- <router-link to="/app/111">app111</router-link> -->
     <router-link to="/login">login</router-link>
     <!-- <router-link to="/login/exact">login exact</router-link> -->
     <!-- <Todo></Todo> -->
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <router-view name="login"></router-view>
     <Footer></Footer>
+    <div class="fullname">{{fullName}}</div>
+    <!-- <router-view name="login"></router-view> -->
   </div>
 </template>
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 import Header from "./layout/header.vue";
 import Footer from "./layout/footer.jsx";
-import Todo from "./views/todo/todo.vue";
+// import Todo from "./views/todo/todo.vue";
 
 export default {
   data() {
@@ -24,15 +30,53 @@ export default {
   },
   components: {
     Header,
-    Todo,
+    // Todo,
     Footer
   },
+
   mounted() {
-    console.log("route:", this.$route);
+    // console.log("app route:", this.$route);
+    console.log("app store:", this.$store);
+    // this.$store.state.count = "none"; // 这样写虽然修改成功，但是会发出警告
+    var n = 0;
+    setInterval(() => {
+      this.updateCount({
+        num: ++n,
+        num2: 3
+      });
+    }, 1000);
+    // console.log(this.updateCountAsync);
+    // this.updateCountAsync({
+    //   num: 4,
+    //   time: 3000
+    // });
+  },
+  methods: {
+    ...mapActions(["updateCountAsync"]),
+    ...mapMutations(["updateCount"])
+  },
+  computed: {
+    // ...mapState(["count"]),
+    ...mapState({
+      // counter: "count"
+      counter: state => state.count
+    }),
+    ...mapGetters(["fullName"])
+    // count() {
+    //   return this.$store.state.count;
+    // },
+    // fullName() {
+    //   return this.$store.getters.fullName;
+    // }
   }
 };
 </script>
 <style lang = 'stylus' scoped>
+.fullname {
+  color: #fff;
+  font-size: 30px;
+}
+
 .fade-leave-active {
   transition: all 0.5s;
 }
