@@ -16,6 +16,12 @@
     <Footer></Footer>
     <div class="fullname">{{fullName}}</div>
     <!-- <router-view name="login"></router-view> -->
+    <!-- <p>textA:{{textA}}</p> -->
+    <!-- <p>textB:{{textB}}</p> -->
+    <!-- <p>textPlus:{{textPlus}}</p>
+    <p>textC:{{textC}}</p>
+    <button type="button" @click="plusText">+</button>
+    <button type="button" @click="subText">-</button>-->
   </div>
 </template>
 <script>
@@ -38,35 +44,54 @@ export default {
     // console.log("app route:", this.$route);
     console.log("app store:", this.$store);
     // this.$store.state.count = "none"; // 这样写虽然修改成功，但是会发出警告
-    var n = 0;
-    setInterval(() => {
-      this.updateCount({
-        num: ++n,
-        num2: 3
-      });
-    }, 1000);
+    // var n = 0;
+    // setInterval(() => {
+    //   this.updateCount({
+    //     num: n++,
+    //     num2: 3
+    //   });
+    // this["a/add"]();
+    // }, 1000);
     // console.log(this.updateCountAsync);
-    // this.updateCountAsync({
-    //   num: 4,
-    //   time: 3000
-    // });
+    this.updateCountAsync({
+      num: 4,
+      time: 3000
+    });
   },
   methods: {
-    ...mapActions(["updateCountAsync"]),
-    ...mapMutations(["updateCount"])
+    ...mapActions([
+      "updateCountAsync"
+      // "a/add"
+    ]),
+    ...mapMutations({
+      updateCount: "updateCount"
+      // plusText: "a/plusText",
+      // subText: "a/subText"
+    })
   },
   computed: {
     // ...mapState(["count"]),
     ...mapState({
       // counter: "count"
       counter: state => state.count
+      // textA: state => state.a.text,
+      // textC: state => state.c.text
     }),
-    ...mapGetters(["fullName"])
+    ...mapGetters({
+      fullName: "fullName"
+      // textPlus: "a/textPlus"
+    })
     // count() {
     //   return this.$store.state.count;
     // },
     // fullName() {
     //   return this.$store.getters.fullName;
+    // }
+    // textA() {
+    //   return this.$store.state.a.text;
+    // },
+    // textB() {
+    //   return this.$store.state.b.text;
     // }
   }
 };
@@ -96,6 +121,11 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+
+  p, button {
+    color: white;
+    font-size: 3em;
+  }
 
   #cover {
     position: absolute;

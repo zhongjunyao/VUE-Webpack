@@ -13,6 +13,28 @@ Vue.use(Vuex)
 const router = createRouter();
 const store = createStore();
 
+// 动态注册模块
+store.registerModule('c',{
+  state:{
+    text:3
+  }
+})
+store.unregisterModule('c')
+
+// const stopWatch = store.watch((state)=>state.count+1,(newCount)=>{
+//   console.log('store newCount:',newCount)
+// })
+// setTimeout(()=>{
+//   stopWatch();
+// },3000)
+// store.subscribe((mutation, state) => { //eslint-disable-line
+//   console.log('subscribe mutation.type:',mutation.type)
+//   console.log('subscribe mutation.payload:',mutation.payload)
+// })
+store.subscribeAction((action, state)=>{//eslint-disable-line
+  console.log('subscribe action.type',action.type)
+  console.log('subscribe action.payload',action.payload)
+})
 router.beforeEach((to, from, next) => {
   console.log('beforeEach invoked')
   // console.log('to:', to, 'from:', from, to.fullPath, to.fullPath === '/login')

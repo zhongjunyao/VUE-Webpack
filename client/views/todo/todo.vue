@@ -48,6 +48,7 @@ export default {
   props: ["id"],
   mounted() {
     console.log("Todo mounted:", this.id);
+    console.log("Todo store:", this.$store);
   },
   data() {
     return {
